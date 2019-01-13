@@ -1,4 +1,4 @@
-package configurations;
+package com.schoolsystem.project.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
