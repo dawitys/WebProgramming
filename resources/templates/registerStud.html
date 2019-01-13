@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>School System</title>
+</head>
+
+<body>
+	<h1>Register a student</h1>
+	<form action="https://www.w3schools.com/action_page.php">
+		First name:<br> <input type="text" name="firstname"
+			placeholder="Mickey"> <br> Last name:<br> <input
+			type="text" name="lastname" placeholder="Mouse"> <br>
+		Age:<br> <input type="text" name="age" placeholder="Age">
+		<br> <select name="Grade">
+			<option value="12">12</option>
+		</select><br> <select name="Section">
+			<option value="A">A</option>
+			<option value="B">B</option>
+			<option value="C">C</option>
+			<option value="D">D</option>
+			<option value="E">E</option>
+		</select> <br> <input type="submit" value="Submit">
+	</form>
+	<a th:href="@{/registerStud}" id="design">Register Student</a>
+	<a th:href="@{/registerTeach}" id="design">Register Teacher</a>
+	<!--         <a th:href="@{/design}" id="design">View Grades</a>
+        <a th:href="@{/design}" id="design">Post Grades</a> -->
+</body>
+</html>
