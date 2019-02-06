@@ -66,13 +66,16 @@
                                     <li><a href="/newss/allNews">News</a>
                                         
                                     </li>
-                                    
+                                    <li sec:authorize="hasAuthority('ADMIN')">
+											<a href="/newss/current">Add News</a>
+									</li>
                                 </ul>
                             </nav><!--/.menu-->
                             <div class="register-contact-nav pull-right">
                                 
                                 <a class="btn btn-default" href="/registration">Want To Register?</a>
                                 <a class="btn btn-default" href="/login">I'm Family</a>
+                                <a sec:authorize="hasAnyAuthority('USER','ADMIN')" href="/logout">Logout</a>
                             </div><!--/.register-contact-nav-->
                         </div><!--/.logo-menu-wrap-->
                     </div><!--/.col-lg-12-->

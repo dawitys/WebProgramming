@@ -10,42 +10,45 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+
 @Data
 @Entity
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
-public class Subject {
+//@RequiredArgsConstructor
+public class SubjectRegistration {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	private Date addedOn;
-	
-	private String Identity;
-	
-	private int Grade;
+	@ManyToOne
+	@JoinColumn(name ="subject_id")
+	private Subject subject;
 	
 	@ManyToOne
-	private Teacher ToughtBy;
+	@JoinColumn(name ="student_id")
+	private Student student;
 	
-	@OneToMany(mappedBy="subject")
-	private Set<SubjectRegistration> registrations;
+	private Date registratedAt;
+	
+	private double grade;
 	
 	@PrePersist
-	void addedOn() {
-	    this.addedOn = new Date();
+	void registratedAt() {
+	    this.registratedAt = new Date();
 	  }
+	
 }

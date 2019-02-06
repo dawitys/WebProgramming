@@ -28,7 +28,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements UserDetails{
 
     @Id
@@ -41,30 +41,6 @@ public class User implements UserDetails{
     @Size(min = 5, message = "Your password must have at least 5 characters")
     @NotBlank(message = "Please provide your password")
     private String password;
-   
-    @Column(name = "first_name")
-    @NotBlank(message = "Please provide your first name")
-    private String firstName;
-    
-    @Column(name = "last_name")
-    @NotBlank(message = "Please provide your last name")
-    private String lastName;
-    
-    @NotBlank(message="Delivery Street is required")
-    private String deliveryStreet;
-    
-    @NotBlank(message="Delivery City is required")
-    private String deliveryCity;
-    
-    @NotBlank(message="Delivery State is required")
-    private String deliveryState;
-    
-    @NotBlank(message="Delivery Zip is required")
-    private String deliveryZip;
-    
-    @Pattern(regexp="^[0-9]{3}-[0-9]{3}-[0-9]{4}$", message="Must be formatted XXX-XXX-XXXX")
-    @NotBlank(message="Phone number is required")
-    private String phoneNumber;
     
     @Column(name = "enabled")
     private int enabled;

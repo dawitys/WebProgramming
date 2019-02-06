@@ -1,3 +1,5 @@
+INSERT INTO `role` (role) VALUES ('USER');
+
 insert into ClassRoom (gradeLevel, section) 
                 values ('G12', 'A');
 insert into ClassRoom (gradeLevel, section) 
