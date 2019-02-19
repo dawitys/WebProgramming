@@ -63,20 +63,16 @@
                                     <li><a href="#">Events</a>
                                         
                                     </li>
-                                    <li><a href="/newss/allNews">News</a>
+                                    <li><a href="#">News</a>
                                         
                                     </li>
-                                    <li sec:authorize="hasAuthority('TEACHER')">
-											<a href="/newss/current">Add News</a>
-									</li>
+                                    
                                 </ul>
                             </nav><!--/.menu-->
                             <div class="register-contact-nav pull-right">
-                                <a sec:authorize="isAnonymous()" class="btn btn-default" href="student/registration">As Student?</a>
-                                <a sec:authorize="isAnonymous()" class="btn btn-default" href="teacher/registration">As Teacher?</a>
-                                <a sec:authorize="isAnonymous()" class="btn btn-default" href="/login">I'm Family</a>
                                 
-                                <a sec:authorize="isAuthenticated()" class="btn btn-default" href="/logout">Logout</a>
+                                <a class="btn btn-default" href="/registration">Want To Register?</a>
+                                <a class="btn btn-default" href="/login">I'm Family</a>
                             </div><!--/.register-contact-nav-->
                         </div><!--/.logo-menu-wrap-->
                     </div><!--/.col-lg-12-->
@@ -132,118 +128,54 @@
                 <div class="row">
                     <!-- Start single blog -->
                     
-                    <div class="col-lg-8 col-md-12">
-                    <h2 class="page-name text-capitalize">Events</h2>
+                    <div class="col-lg-10 col-md-12">
+                    <h2 class="page-name text-capitalize">News</h2>
                     
                         <!-- Start blog list -->
                         <div class="blog-contect-area blog-list">
                         
                         <br/>
-                            <div class="row">
-                                <!-- Start single blog -->
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="blog list border-radius">
-                                        <div class="blog-thumb">
-                                            <img src="../images/ethiopia/IMG_0388.JPG" alt="blog image">     
-                                        </div>
-                                        <div class="blog-details">
-                                            <div class="blog-time">
-                                                <span class="blog-date">January 14th, 2019</span>
-                                                <span class="blog__category">Category <a href="#">Speaking</a></span>
-                                            </div>
-                                            <div class="blog-title">
-                                                <h3><a href="single-blog.html">Kukulu Is Here </a></h3>
-                                            </div>
-                                            <p>Kukulu's head developer dawit will come to our school inorder to inspire young tech makers in our school and share experiences.</p>
-                                            <div class="blog-more">
-                                                <a href="#" class="btn btn-default">Read More</a>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End single blog -->
-                                <!-- Start single blog -->
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="blog list border-radius">
-                                        <div class="blog-thumb">
-                                            <img src="../images/ethiopia/IMG_0389.JPG" alt="blog image">     
-                                        </div>
-                                        <div class="blog-details">
-                                            <div class="blog-time">
-                                                <span class="blog-date">January 20th, 2019</span>
-                                                <span class="blog__category">Category <a href="#">Charity</a></span>
-                                            </div>
-                                            <div class="blog-title">
-                                                <h3><a href="single-blog.html">Donate Your Blood</a></h3>
-                                            </div>
-                                            <p>National Blood bank of Ethiopia will be here to collect blood for fellow in need Ethiopians. Drops of your blood can save lives</p>
-                                            <div class="blog-more">
-                                                <a href="#" class="btn btn-default">Read More</a>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End single blog -->
-                                <!-- Start single blog -->
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="blog list border-radius">
-                                        <div class="blog-thumb">
-                                            <img src="../images/ethiopia/IMG_0390.JPG" alt="blog image">     
-                                        </div>
-                                        <div class="blog-details">
-                                            <div class="blog-time">
-                                                <span class="blog-date">January 21th, 2019</span>
-                                                <span class="blog__category">Category <a href="#">Travel</a></span>
-                                            </div>
-                                            <div class="blog-title">
-                                                <h3><a href="single-blog.html">A Trip to Buraeu</a></h3>
-                                            </div>
-                                            <p>The AIESEC club of Ethio's Future is having a charity and voulntary work trip to Buraeu ,which is not far just 40 KM away, to help the near past ruins</p>
-                                            <div class="blog-more">
-                                                <a href="#" class="btn btn-default">Read More</a>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End single blog -->
-                               
-                            </div><!--/.row-->
-                        </div><!--/.blog-contect-area-->
-                        
-                    </div><!--/.col-lg-8-->
-                    
-                    
-                    
-                    
-                    
+                            
                     <!-- Start single blog -->
-                    <div class="col-lg-4 col-md-12">
-                    <h2 class="page-name text-capitalize">News</h2>
                     <br/>
-                    <div class="">
-                        <div class="blog">
-                            <div class="blog-thumb">
-                                <img src="../images/ethiopia/IMG_0391.JPG" alt="blog image">     
-                            </div>
+                   
+                        <!-- Dynamic content start here  
+                         
+                        <div th:each="news : ${allSub}" class="blog">
+                              
                             <div class="blog-details">
                                 <div class="blog-time">
-                                    <span class="blog-date">January 14th, 2019 </span>
-                                    <span class="blog-category">Category <a href="#">Accomplishment</a></span>
+                                    <span th:text=${news.registratedAt} class="blog-date">News Title </span>
+                                    <span class="blog-category"> Catagory <a href="#">Everything</a></span>
                                 </div>
-                                <div class="blog-title">
-                                    <h3><a href="single-blog.html">Winner in Addis Ababa</a></h3>
-                                </div>
-                                <p>This Week our student 'Daniel Geremew' won the technology competetion held in 6kilo AAU Campus. We all know that our school is full of bright young students whom are full of new ideas...</p>
+                                
                                 <div class="blog-more">
                                     <a href="#" class="btn btn-default">Read More</a>
                                     
                                 </div>
                             </div>
-                        </div>
-                    </div><!-- End single blog -->
+                    	</div> 
+                    	 -->
+                    	<div th:each="news : ${allStuds}" class="blog">
+                            <div class="blog-details">
+                                <div class="blog-time">
+                                    <span th:text=${news.Name} class="blog-date">News Title </span>
+                                    <span class="blog-category"> Catagory <a href="#">Everything</a></span>
+                                </div>
+                            </div>
+                    	</div>
+                    	<div th:each="su : ${allSub}" class="blog">
+                            <div class="blog-details">
+                                <div class="blog-time">
+                                    <span th:text=${su.registratedAt} class="blog-date">News Title </span>
+                                    
+                                    <span th:text=${su.getStudent().getName()} class="blog-date">News Title </span>
+                                    
+                                    <span class="blog-category"> Catagory <a href="#">Everything</a></span>
+                                </div>
+                            </div>
+                    	</div>
+                    <!-- End single blog -->
                     
                    
                     <!-- Start single blog -->
@@ -308,7 +240,7 @@
 			<div class="row justify-content-md-center">
 				<div class="col-lg-8">
 				    <div class="section-heading-area text-center">
-					    <a class="btn btn-default btn-primary section-heading-area text-center" href="/registration">Join Us</a>
+					    <a class="btn btn-default btn-primary section-heading-area text-center" href="single-course.html">Join Us</a>
 					    
 				    </div><!--/.section-heading-area--> 
 				</div><!--/.col-lg-8-->

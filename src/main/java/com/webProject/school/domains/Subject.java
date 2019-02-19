@@ -29,14 +29,12 @@ import lombok.RequiredArgsConstructor;
 public class Subject {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private Date addedOn;
 	
 	private String Identity;
-	
-	private int Grade;
 	
 	@ManyToOne
 	private Teacher ToughtBy;

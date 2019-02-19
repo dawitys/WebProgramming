@@ -5,8 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import com.webProject.school.domains.Student;
 import com.webProject.school.domains.*;//SubjectRegistration;
 
-public interface StudentRepository extends CrudRepository<Student, Long>{
-	
-	ArrayList<Student> getAllByRegistrations(Subject sub);
-	Student findByUserId(long id);	
+public interface SubjectRepository extends CrudRepository<Subject, Long>{
+		
 }

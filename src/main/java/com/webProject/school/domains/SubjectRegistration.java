@@ -26,12 +26,12 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
-@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@NoArgsConstructor(access=AccessLevel.PUBLIC, force=true)
 //@RequiredArgsConstructor
 public class SubjectRegistration {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@ManyToOne

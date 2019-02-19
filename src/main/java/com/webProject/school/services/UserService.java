@@ -7,6 +7,7 @@ import com.webProject.school.security.User;
 public interface UserService extends UserDetailsService {
 
 	User findUserByUsername(String username);
-	void saveUser(User user);
+	void saveStudentUser(User user);
+	void saveTeacherUser(User user);
 	
 }

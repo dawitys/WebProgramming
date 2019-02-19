@@ -113,14 +113,23 @@
       <!-- Table -->
       <table class="table result-table justify-content-md-center">
         <tr>
-            <th>#</th>
-            <th>ID</th>
-            <th>Full Name</th>
+            <th>Id</th>
+            <th>Registrated At</th>
+            <th>Name</th>
             <th>Assignment 1</th>
             <th>Assignment 2</th>
             <th>Mid Terms</th>
             <th>Final Exams</th>
             <th>Total</th>
+        </tr>
+        <tr th:each="su : ${allSub}">
+        	<td th:text=${su.getStudent().getId()}>Id</td>
+            <td th:text=${su.registratedAt}>News Title </td>  
+            <td th:text=${su.getStudent().getName()}>News Title </td>
+        	<td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
+            <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
+            <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
+            <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>               
         </tr>
         <tr>
             <td>1</td>
@@ -131,8 +140,7 @@
             <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
             <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
             <td></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
                 <td>1</td>
                 <td>stu/403040</td>
                 <td>Dagmawi Tefera</td>

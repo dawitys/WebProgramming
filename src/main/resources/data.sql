@@ -1,27 +1,3 @@
-INSERT INTO `role` (role) VALUES ('USER');
+CREATE USER 'applicationUser'@'%' IDENTIFIED VIA mysql_native_password USING '***';GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO 'applicationUser'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 
-insert into ClassRoom (gradeLevel, section) 
-                values ('G12', 'A');
-insert into ClassRoom (gradeLevel, section) 
-                values ('G12', 'B');
-insert into ClassRoom (gradeLevel, section) 
-                values ('G12', 'C');
-insert into ClassRoom (gradeLevel, section) 
-                values ('G12', 'D');
-insert into ClassRoom (gradeLevel, section) 
-                values ('G12', 'E');
-                
-insert into Course (gradeLevel, subjectType) 
-                values ('G12', 'MATH');
-insert into Course (gradeLevel, subjectType) 
-                values ('G12', 'PHYSICS');
-insert into Course (gradeLevel, subjectType) 
-                values ('G12', 'CHEMISTRY');
-insert into Course (gradeLevel, subjectType) 
-                values ('G12', 'BIOLOGY');
-insert into Course (gradeLevel, subjectType) 
-                values ('G12', 'ENGLISH');
-insert into Course (gradeLevel, subjectType) 
-                values ('G12', 'CIVICS');
-insert into Course (gradeLevel, subjectType) 
-                values ('G12', 'SAT');
+INSERT INTO `role` (role) VALUES ('STUDENT'),('TEACHER'),('ADMIN');

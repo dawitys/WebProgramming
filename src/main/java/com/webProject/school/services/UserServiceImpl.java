@@ -34,14 +34,22 @@ public class UserServiceImpl implements UserService{
     	return userRepository.findByUsername(username);
     }
     
-    public void saveUser(User user) {
+    public void saveTeacherUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setEnabled(1);
-        Role userRole = roleRepository.findByRole("USER");
+        Role userRole = roleRepository.findByRole("TEACHER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
 
+    public void saveStudentUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setEnabled(1);
+        Role userRole = roleRepository.findByRole("STUDENT");
+        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        userRepository.save(user);
+    }
+    
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		

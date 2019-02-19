@@ -3,10 +3,72 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>School System</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+<link th:href="@{/css/plugins.css}" rel="stylesheet">
+
+    <!--====== Custom CSS for themes =======-->
+    
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+	
+	<link rel="shortcut icon" th:href="@{/images/logos/logo.png}">
+    
+    <!--======== Font icon Css ============-->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/themify-icons.css}" rel="stylesheet">
+	
+	  
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
 	<h1>Register a teacher</h1>
+	<form th:action="@{/teacher/registration}" th:object="${user}" th:method="POST"
+			class="form-horizontal" role="form">
+			<br />
+			<!--
+			<div class="form-group">
+			 <p><input class="form-control" type="text" th:field="*{Name}" name="firstname"  th:placeholder="FirstName"></p>
+			 <span
+					class="text-danger" th:if="${#fields.hasErrors('firstName')}"
+					th:errors="*{firstName}">First Name Error </span>
+             </div>  
+              
+              
+              <div class="form-group">
+				<p><input class="form-control" type="text" th:field="*{lastName}" name="lastname"  th:placeholder="LastName"></p>
+			 <span
+					class="text-danger" th:if="${#fields.hasErrors('lastName')}"
+					th:errors="*{lastName}">Last Name Error</span>
+			</div> -->
+			
+			<div class="form-group">
+				<p><input class="form-control" type="text" th:field="*{username}" name="username" th:placeholder="UserName"></p>
+			 <span
+					class="text-danger" th:if="${#fields.hasErrors('username')}"
+					th:errors="*{username}">UserName Error</span>
+			</div>   
+			
+			
+			
+			<div class="form-group">
+				<p><input class="form-control" type="password" th:field="*{password}" name="password" th:placeholder="Password"></p>
+			 <span
+					class="text-danger" th:if="${#fields.hasErrors('password')}"
+					th:errors="*{password}">Password Error</span>
+			</div>  
+                              
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block">Sign
+					Up</button>
+			</div>
+
+			
+
+		</form>
 	<form action="https://www.w3schools.com/action_page.php">
 		First name:<br> <input type="text" name="firstname"
 			placeholder="Mickey"> <br> Last name:<br> <input
@@ -21,5 +83,19 @@
 			<option value="D">Physics</option>
 		</select> <br> <input type="submit" value="Submit">
 	</form>
+	
+	<!-- All JS files are included here.
+	============================================== -->
+   
+    <!-- jQuery Latest Version -->
+    <script src="../js/jquery-v3.2.1.min.js"></script>
+    <!-- Popper JS -->
+    <script src="../js/popper.min.js"></script>
+    <!-- Bootstrap framework JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- All JS plugins included in this file. -->
+    <script src="../js/plugins.js"></script>
+    <!-- Main JS file that contents all jQuery Plugins activation. -->
+    <script src="../js/main.js"></script>
 </body>
 </html>

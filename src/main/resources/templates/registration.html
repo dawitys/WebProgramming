@@ -74,6 +74,7 @@
 		<form th:action="@{/registration}" th:object="${user}" th:method="POST"
 			class="form-horizontal" role="form">
 			<br />
+			<!--
 			<div class="form-group">
 			 <p><input class="form-control" type="text" th:field="*{Name}" name="firstname"  th:placeholder="FirstName"></p>
 			 <span
@@ -87,7 +88,7 @@
 			 <span
 					class="text-danger" th:if="${#fields.hasErrors('lastName')}"
 					th:errors="*{lastName}">Last Name Error</span>
-			</div> 
+			</div> -->
 			
 			<div class="form-group">
 				<p><input class="form-control" type="text" th:field="*{username}" name="username" th:placeholder="UserName"></p>
@@ -103,41 +104,6 @@
 			 <span
 					class="text-danger" th:if="${#fields.hasErrors('password')}"
 					th:errors="*{password}">Password Error</span>
-			</div>  
-			
-			<div class="form-group">
-				<p><input class="form-control" type="text" th:field="*{deliveryStreet}" name="street" th:placeholder="Street"></p>
-			 <span
-					class="text-danger" th:if="${#fields.hasErrors('deliveryStreet')}"
-					th:errors="*{deliveryStreet}">Street Error</span>
-			</div>  
-			
-			<div class="form-group">
-				<p><input class="form-control" type="text" th:field="*{deliveryCity}" name="city" th:placeholder="City"></p>
-			 <span
-					class="text-danger" th:if="${#fields.hasErrors('deliveryCity')}"
-					th:errors="*{deliveryCity}">City Error</span>
-			</div> 
-			
-			<div class="form-group">
-				<p><input class="form-control" type="text" th:field="*{deliveryState}" name="state" th:placeholder="State"></p>
-			 <span
-					class="text-danger" th:if="${#fields.hasErrors('deliveryState')}"
-					th:errors="*{deliveryState}">State Error</span>
-			</div> 
-			
-			<div class="form-group">
-				<p><input class="form-control" type="text" th:field="*{deliveryZip}" name="zip" th:placeholder="Zip"></p>
-			 <span
-					class="text-danger" th:if="${#fields.hasErrors('deliveryZip')}"
-					th:errors="*{deliveryZip}">Zip Error</span>
-			</div>         
-                       
-             <div class="form-group">
-				<p><input class="form-control" type="tel" th:field="*{phoneNumber}" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  name="zip" th:placeholder="Phone"></p>
-			 <span class="text-danger"
-					th:if="${#fields.hasErrors('phoneNumber')}"
-					th:errors="*{phoneNumber}">Phone Number Error</span>
 			</div>  
                               
 			<div class="form-group">
