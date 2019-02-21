@@ -17,21 +17,21 @@
     <title>Ethio's Future High</title>
     
     <!--========== Favicons =========-->
-    <link rel="shortcut icon" href="../images/logos/logo.png">
+    <link rel="shortcut icon" th:href="@{/images/logos/logo.png}">
     
     <!--======== Font icon Css ============-->
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/themify-icons.css" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link href="@{/css/themify-icons.css}" rel="stylesheet">
     
     <!--======= Bootstrap Main Css =============-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
     
     <!--====== Plugins Css ================-->
-    <link href="../css/plugins.css" rel="stylesheet">
+    <link th:href="@{/css/plugins.css}" rel="stylesheet">
 
     <!--====== Custom CSS for themes =======-->
     
-    <link rel="stylesheet" href="../css/custom.css" />
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
     
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -49,7 +49,7 @@
                         <div class="logo-menu-wrap hidden-xs hidden-sm">
                             <div class="logo">
                                 <a href="index-2.html">
-                                    <img src="../images/logos/logo.png" alt="logo">
+                                    <img th:src="@{/images/logos/logo.png}" alt="logo">
                                 </a>
                             </div><!--/.logo-->
                             <nav class="menu">
@@ -63,20 +63,21 @@
                                     <li><a href="#">Events</a>
                                         
                                     </li>
-                                    <li><a href="/newss/allNews">News</a>
+                                    <li><a th:href="@{/newss/allNews}">News</a>
                                         
                                     </li>
                                     <li sec:authorize="hasAuthority('TEACHER')">
-											<a href="/newss/current">Add News</a>
+											<a th:href="@{/newss/current}">Add News</a>
 									</li>
                                 </ul>
                             </nav><!--/.menu-->
                             <div class="register-contact-nav pull-right">
-                                <a sec:authorize="isAnonymous()" class="btn btn-default" href="student/registration">As Student?</a>
-                                <a sec:authorize="isAnonymous()" class="btn btn-default" href="teacher/registration">As Teacher?</a>
-                                <a sec:authorize="isAnonymous()" class="btn btn-default" href="/login">I'm Family</a>
+                                <a sec:authorize="isAnonymous()" class="btn btn-default" th:href="@{/student/registration}">As Student?</a>
+                                <a sec:authorize="isAnonymous()" class="btn btn-default" th:href="@{/teacher/registration}">As Teacher?</a>
+                                <a sec:authorize="isAnonymous()" class="btn btn-default" th:href="@{/login}">I'm Family</a>
                                 
-                                <a sec:authorize="isAuthenticated()" class="btn btn-default" href="/logout">Logout</a>
+                                <a sec:authorize="isAuthenticated()" class="btn btn-default" th:href="@{/logout}">Logout</a>
+                                
                             </div><!--/.register-contact-nav-->
                         </div><!--/.logo-menu-wrap-->
                     </div><!--/.col-lg-12-->

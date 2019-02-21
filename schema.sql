@@ -1,10 +1,28 @@
 
+    create table attendance (
+       id bigint not null auto_increment,
+        attendance_date datetime,
+        status varchar(255),
+        student_id bigint,
+        subject_id bigint,
+        primary key (id)
+    ) engine=InnoDB
+
     create table news (
        id bigint not null auto_increment,
         content varchar(255),
         posted_at datetime,
         title varchar(255),
         posted_by_id bigint,
+        primary key (id)
+    ) engine=InnoDB
+
+    create table payment (
+       id bigint not null auto_increment,
+        amount double precision not null,
+        payment_date datetime,
+        reason_for_payment varchar(255),
+        student_id bigint,
         primary key (id)
     ) engine=InnoDB
 
@@ -62,10 +80,25 @@
         primary key (id)
     ) engine=InnoDB
 
+    alter table attendance 
+       add constraint FKnq6vm31it076obtjf2qp5coim 
+       foreign key (student_id) 
+       references student (id)
+
+    alter table attendance 
+       add constraint FKe9e3k904k6y7ii1832osog86w 
+       foreign key (subject_id) 
+       references subject (id)
+
     alter table news 
        add constraint FK9q17s4qtv7elpg5qr727jg7g6 
        foreign key (posted_by_id) 
        references users (id)
+
+    alter table payment 
+       add constraint FKq0mpbhvyrwyggk1gwjams69wf 
+       foreign key (student_id) 
+       references student (id)
 
     alter table student 
        add constraint FKk0thg920a3xk3v59yjbsatw1l 
