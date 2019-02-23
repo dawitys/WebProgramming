@@ -31,7 +31,7 @@ public class HomeControllerTest {
       .andExpect(view().name("home"))  
       
       .andExpect(content().string(           
-          containsString(" ")));  
+          containsString("Ethio's Future High")));  
   }
 
 }

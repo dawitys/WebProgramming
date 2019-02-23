@@ -24,7 +24,7 @@ public class StudentControllerTest {
 
   @Test
   public void testHomePage() throws Exception {
-    mockMvc.perform(get("/"))   
+    mockMvc.perform(get("/student/home"))   
     
       .andExpect(status().isOk())  
       
