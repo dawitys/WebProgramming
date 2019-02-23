@@ -1,5 +1,6 @@
 New Model classes are added according to our business logic
 
+
 We have trided to model all of our domain classes and define their relationships [database schema improved].
 And based on the domains, validation on forms is implemented
 
