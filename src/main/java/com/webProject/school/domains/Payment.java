@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.util.Date;
 import lombok.Data;
@@ -27,8 +29,12 @@ public class Payment {
 	@JoinColumn(name ="student_id")
 	private Student student;
 	
+	@NotNull
+	@Size(min=10,message="reason should be at least 10 character long")
 	private String reasonForPayment;
 	
+	@NotNull
+	@Size(min=1,max=50000,message="Payment amount should be between 1 and 500000")
 	private double amount;
 	
 	@PrePersist

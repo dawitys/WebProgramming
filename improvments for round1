@@ -1,0 +1,7 @@
+We have trided to model all of our domain classes and define their relationships [database schema improved].
+And based on the domains, validation on forms is implemented
+
+
+New test classes(Browser test with selenium) are added and more test cases are presented to assure the application is workng properly.
+
+some security bugs are fixed and role based authoriztion is implemented for different features.

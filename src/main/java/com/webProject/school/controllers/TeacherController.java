@@ -97,13 +97,11 @@ public class TeacherController {
     		SubjectRegistration reg = registrationService.findById((long) 2).get();
     		model.addAttribute("re1",reg);
     		model.addAttribute("subjectRegistrations",registrations);
-        	for (SubjectRegistration subjectRegistration : registrations) {
-        		model.addAttribute("reg"+subjectRegistration.getId(),subjectRegistration);
-			}
+        	
         }
-        
 		return "SubjectPostResults";
 	}
+	
 	@PostMapping("/subject/update/{id}")
 	public String updateGrade(@PathVariable("id") long id, SubjectRegistration su,Model model){
 		SubjectRegistration f_sub=registrationService.findById(id).get();

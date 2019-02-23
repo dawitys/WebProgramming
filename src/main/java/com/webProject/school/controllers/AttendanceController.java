@@ -19,64 +19,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.webProject.school.domains.News;
+import com.webProject.school.domains.Attendance;
 import com.webProject.school.security.User;
-import com.webProject.school.services.NewsService;
 import com.webProject.school.services.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/newss")
-public class NewsController {
+@RequestMapping("/attendance")
+public class AttendanceController {
 
-	private NewsService newsService;
 	private UserService userService;
 
 	@Autowired
-	public NewsController(NewsService newsService, UserService userService) {
-		this.newsService = newsService;
+	public AttendanceController(UserService userService) {
 		this.userService = userService;
 	}
-	@ModelAttribute(name="news")
-	public News news() {
-		return new News();
+	
+	@ModelAttribute(name="attendance")
+	public Attendance attendance() {
+		return new Attendance();
 	}
 	
-	@ModelAttribute
-	public void addNews(Model model) {
-		List<News> news = new ArrayList<>();
-		newsService.findAll()
-							.forEach(i->news.add(i));
-		
-			model.addAttribute("allNews", news);
-	}
 	
-	@GetMapping("/allNews")
-	public String allNews() {
-		return "news_view";
+	@GetMapping("/all")
+	public String allAttendance() {
+		return "attendance_view";
 	}
 	
 	@GetMapping("/current")
-	public String newsForm() {
-		return "news_form";
+	public String attendanceForm() {
+		return "attendance_form";
 	}
 
 	@PostMapping
-	public String processNews(@Valid News news, Errors errors, 
+	public String processAttendance(@Valid Attendance att, Errors errors, 
 			SessionStatus sessionStatus, @AuthenticationPrincipal User user) {
 
 		if (errors.hasErrors()) {
 
-			log.info("News error: " + errors.toString());
-			return "news_form";
+			log.info("Attendance error: " + errors.toString());
+			return "attendance_form";
 		}
-		
-		news.setPostedBy(user);
-		
-		News savedNews = newsService.save(news);
-		log.info("News submitted: " + savedNews);
+
+		log.info("Attendance submitted: " + att);
 		sessionStatus.setComplete();
 		return "redirect:/";
 	}
