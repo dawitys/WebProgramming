@@ -18,6 +18,11 @@ public class TeacherServiceImpl implements TeacherService {
 		this.teacherRepository = teacherRepository;
 	}
 	
+	@Override
+	public Optional<Teacher> findByUserId(Long id) {
+		return teacherRepository.findByUserId(id);
+	}
+	
 	public Teacher save(Teacher Teacher) {
 		return teacherRepository.save(Teacher);
 	}
@@ -61,4 +66,6 @@ public class TeacherServiceImpl implements TeacherService {
 	public void deleteAll(){
 		teacherRepository.deleteAll();
 	}
+
+
 }

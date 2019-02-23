@@ -1,6 +1,10 @@
 package com.webProject.school.domains;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -9,24 +13,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.webProject.school.security.User;
 
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-
-@Data
 @Entity
+@Data
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
-public class Subject {
+@RequiredArgsConstructor
+public class School_Profile{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -34,16 +40,22 @@ public class Subject {
 	
 	private Date addedOn;
 	
-	private String identity;
+	@NotNull
+	@Size(min=2, message="Name must be at least 2 characters long")
+	private final String Name;
+
+	@NotNull
+	@Size(min=2, message="Name must be at least 5 characters long")
+	private final String Location;
 	
-	@ManyToOne
-	private Teacher toughtBy;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
 	
-	@OneToMany(mappedBy="subject")
-	private Set<SubjectRegistration> registrations;
 	
 	@PrePersist
 	void addedOn() {
 	    this.addedOn = new Date();
 	  }
+
 }

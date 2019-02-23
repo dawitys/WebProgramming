@@ -35,6 +35,7 @@ public class User implements UserDetails{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
    
+    @Size(min = 5, message = "Your username must have at least 5 characters")
     @NotBlank(message = "Please provide a username")
     private String username;
    

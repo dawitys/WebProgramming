@@ -6,18 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webProject.school.domains.Subject;
+import com.webProject.school.domains.Teacher;
 import com.webProject.school.repositories.NewsRepository;
 import com.webProject.school.repositories.SubjectRepository;
 
 @Service
 public class SubjectServiceImpl implements SubjectService {
 	SubjectRepository subjectRepository;
-
+	
 	@Autowired
 	public SubjectServiceImpl(SubjectRepository subjectRepository) {
 		this.subjectRepository = subjectRepository;
 	}
+	public Subject findByIdentity(String subject) {
+		return subjectRepository.findByIdentity(subject);
+	}
 	
+	public Iterable<Subject> findAllByToughtBy(Teacher teacher) {
+		return subjectRepository.findAllByToughtBy(teacher);
+	}
 	public Subject save(Subject Subject) {
 		return subjectRepository.save(Subject);
 	}

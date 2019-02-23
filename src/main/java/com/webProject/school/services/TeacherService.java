@@ -12,6 +12,8 @@ public interface TeacherService {
 	public Iterable<Teacher> saveAll(Iterable<Teacher> teachers);
 
 	Optional<Teacher> findById(Long id);
+	
+	Optional<Teacher> findByUserId(Long id);
 
 	boolean existsById(Long id);
 	

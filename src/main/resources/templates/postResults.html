@@ -16,18 +16,22 @@
     <!--======== Page Title===========-->
     <title>Post Result</title>
     
-    <!--========== Favicons =========-->
-    <link rel="shortcut icon" href="../images/logos/logo.png">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+<link th:href="@{/css/plugins.css}" rel="stylesheet">
+
+    <!--====== Custom CSS for themes =======-->
+    
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+	
+	<link rel="shortcut icon" th:href="@{/images/logos/logo.png}">
     
     <!--======== Font icon Css ============-->
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/themify-icons.css" rel="stylesheet">
-    
-    <!--======= Bootstrap Main Css =============-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/themify-icons.css}" rel="stylesheet">
     
     <!--====== Plugins Css ================-->
-    <link href="../css/plugins.css" rel="stylesheet">
+    <link href="@{/css/plugins.css}" rel="stylesheet">
 
     <!--====== Custom CSS for themes =======-->
     
@@ -104,92 +108,15 @@
 
     <section id="pricing-table-section" class="pricing-section-area s-pd2">
             <div class="container">
-               
+               <h3 th:text=${success}></h3>
                 
                 <div class="row justify-content-md-center">
-                    <div class="table-responsive panel panel-default col-lg-12">
+                    <div th:each="subj : ${offeredSubjects}" class="table-responsive panel panel-default col-lg-12">
       <!-- Default panel contents -->
-      <div class="panel-heading table-header">Semester 2, Grade 11, Section A</div>
       <!-- Table -->
-      <table class="table result-table justify-content-md-center">
-        <tr>
-            <th>Id</th>
-            <th>Registrated At</th>
-            <th>Name</th>
-            <th>Assignment 1</th>
-            <th>Assignment 2</th>
-            <th>Mid Terms</th>
-            <th>Final Exams</th>
-            <th>Total</th>
-        </tr>
-        <tr th:each="su : ${allSub}">
-        	<td th:text=${su.getStudent().getId()}>Id</td>
-            <td th:text=${su.registratedAt}>News Title </td>  
-            <td th:text=${su.getStudent().getName()}>News Title </td>
-        	<td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-            <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-            <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-            <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>               
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>stu/403040</td>
-            <td>Abel Tefera</td>
-            <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-            <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-            <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-            <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-            <td></td>
-        </tr>        <tr>
-                <td>1</td>
-                <td>stu/403040</td>
-                <td>Dagmawi Tefera</td>
-                <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                <td></td>
-            </tr>
-            <tr>
-                    <td>1</td>
-                    <td>stu/403040</td>
-                    <td>Abel Tefera</td>
-                    <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                    <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                    <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                    <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                </tr>
-                <tr>
-                        <td>1</td>
-                        <td>stu/403040</td>
-                        <td>Abel Tefera</td>
-                        <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                        <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                        <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                        <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                            <td>1</td>
-                            <td>stu/403040</td>
-                            <td>Abel Tefera</td>
-                            <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                            <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                            <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                            <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                                <td>1</td>
-                                <td>stu/403040</td>
-                                <td>Abel Tefera</td>
-                                <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                                <td><input class="form-control post-result-form" type="text" name="log" id="user_login"></td>
-                                <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                                <td><input class="form-control post-result-form" type="text" name="log" id="user_login" ></td>
-                                <td></td>
-                            </tr>
-      </table>
+      
+      <a th:href="@{'subject/'+${subj.getIdentity()}}" method="GET"><div class="panel-heading table-header">Subject => <span th:text=${subj.getIdentity()}></span></div></a>
+      
 
       <div class="post-result-teacher blog-more">
             <a href="#" class="btn btn-default">Post</a>

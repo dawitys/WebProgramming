@@ -1,8 +1,9 @@
 package com.webProject.school.services;
 
 import java.util.Optional;
-
+import org.springframework.stereotype.Service;
 import com.webProject.school.security.Role;
+
 
 public interface RoleService {
 

@@ -8,10 +8,13 @@ management:
     show-details: always
 spring:
   datasource:
+    platform: mysql
     url: jdbc:mysql://localhost:3306/school_system_jpa
     username: root
     password: 
   jpa:
+    hibernate:
+      ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
     show-sql: true
@@ -26,4 +29,4 @@ spring:
   boot:
     admin:
       client:
-      url: http://localhost:9001    
+        url: http://localhost:9001    
