@@ -69,6 +69,8 @@ public class NewsController {
 			SessionStatus sessionStatus, @AuthenticationPrincipal User user) {
 
 		if (errors.hasErrors()) {
+
+			log.info("News error: " + errors.toString());
 			return "news_form";
 		}
 		

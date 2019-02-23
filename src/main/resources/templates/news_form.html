@@ -17,26 +17,26 @@
     <title>Teacher</title>
     
     <!--========== Favicons =========-->
-    <link rel="shortcut icon" href="../images/logos/logo.png">
+    <link rel="shortcut icon" th:href="@{/images/logos/logo.png}">
     
     <!--======== Font icon Css ============-->
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/themify-icons.css" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/themify-icons.css}" rel="stylesheet">
     
     <!--======= Bootstrap Main Css =============-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
     
     <!--====== Plugins Css ================-->
-    <link href="../css/plugins.css" rel="stylesheet">
+    <link th:href="@{/css/plugins.css}" rel="stylesheet">
 
     <!--====== Custom CSS for themes =======-->
     
-    <link rel="stylesheet" href="../css/custom.css" />
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
     
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script th:src="@{/js/vendor/modernizr-2.8.3.min.js}"></script>
 </head>
 <body>
     <!--====Header Area
@@ -49,12 +49,12 @@
                         <div class="logo-menu-wrap hidden-xs hidden-sm">
                             <div class="logo">
                                 <a href="index-2.html">
-                                    <img src="../images/logos/logo.png" alt="logo">
+                                    <img th:src="@{/images/logos/logo.png}" alt="logo">
                                 </a>
                             </div><!--/.logo-->
                             <nav class="menu">
                                 <ul id="nav">
-                                    <li><a href="#">Home</a>
+                                    <li><a th:href="@{/home}">Home</a>
                                         
                                     </li>
                                     <li><a href="#">About</a>
@@ -63,7 +63,7 @@
                                     <li><a href="#">Events</a>
                                         
                                     </li>
-                                    <li><a href="#">News</a>
+                                    <li><a href="/newss/allNews">News</a>
                                         
                                     </li>
                                     <li><a href="#"></a>
@@ -80,7 +80,7 @@
                             </nav><!--/.menu-->
                             <div class="register-contact-nav pull-right">
                                 
-                                <a class="btn btn-default" href="contact.html">Sign Out</a>
+                                <a class="btn btn-default" th:href="@{/logout}">Sign Out</a>
                             </div><!--/.register-contact-nav-->
                         </div><!--/.logo-menu-wrap-->
                     </div><!--/.col-lg-12-->
@@ -92,7 +92,7 @@
         
         <!--Mobile Menu-->
         <div class="mobile-menu">
-            <a class="mobile-logo" href="index-2.html"><img src="../images/logo.png" alt="logo"></a>
+            <a class="mobile-logo" href="#"><img th:src="@{/images/logo.png}" alt="logo"></a>
         </div>
     </header><!--/.header-area-->
     
@@ -121,15 +121,20 @@
 
                             </div>
                             <p><input th:field="*{title}" class="form-control" type="text" name="header" id="user_login" placeholder="Header"></p>
-                            <p class="input-group"><textarea th:field="*{content}" placeholder="detail" rows="4" class="form-control" name="detail"></textarea></p>
+                             
+                            	<div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title Error</div></p>
+                                                      
+                            <p class="input-group"><textarea th:field="*{content}" placeholder="detail" rows="4" class="form-control" name="detail"></textarea>
+                            	
+                            	<div class="text-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Content Error</div></p>
+                            
                             <P><input class="form-control" type="date" name="date" placeholder="date"></P>
 
                             <p><input class="form-control" type="text" name="category" id="user_pass" placeholder="category"></p>
-                            <a class="login-form-forgot-password" href="#"></a>
+                            
                             <p><button class="btn btn-default btn-primary" type="submit">Add News</button></p>
                                                 
-                            <div class="login-form-register-now"><p>Not yet a family? <a href="register.html">REGISTER NOW</a></p></div>
-                        	-->
+                            
                         </form>
                     </div><!--/.login-form-area-->
                 </div><!--/.col-lg-4-->

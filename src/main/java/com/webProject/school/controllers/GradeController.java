@@ -37,18 +37,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/grades")
 public class GradeController {
 
-	private NewsService newsService;
-	private UserService userService;
 	private SubjectRegistrationService srp;
-	private StudentService sr;
 	
-	@Autowired
-	public GradeController(NewsService newsService, UserService userService,SubjectRegistrationService s,StudentService ss) {
-		this.newsService = newsService;
-		this.userService = userService;
-		this.srp=s;
-		this.sr=ss;
-	}
+
 	@ModelAttribute(name="subs")
 	public SubjectRegistration subs() {
 		return new SubjectRegistration();
@@ -80,21 +71,4 @@ public class GradeController {
 	public String newsForm() {
 		return "news_form";
 	}
-
-	@PostMapping
-	public String processNews(@Valid News news, Errors errors, 
-			SessionStatus sessionStatus, @AuthenticationPrincipal User user) {
-
-		if (errors.hasErrors()) {
-			return "news_form";
-		}
-		
-		news.setPostedBy(user);
-		
-		News savedNews = newsService.save(news);
-		log.info("News submitted: " + savedNews);
-		sessionStatus.setComplete();
-		return "redirect:/";
-	}
-
 }

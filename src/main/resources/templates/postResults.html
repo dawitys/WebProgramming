@@ -53,12 +53,12 @@
                         <div class="logo-menu-wrap hidden-xs hidden-sm">
                             <div class="logo">
                                 <a href="index-2.html">
-                                    <img src="../images/logos/logo.png" alt="logo">
+                                    <img th:src=@{"/images/logos/logo.png}" alt="logo">
                                 </a>
                             </div><!--/.logo-->
                             <nav class="menu">
                                 <ul id="nav">
-                                    <li><a href="#">Home</a>
+                                    <li><a th:href="@{/}">Home</a>
                                         
                                     </li>
                                     <li><a href="#">About</a>
@@ -67,10 +67,12 @@
                                     <li><a href="#">Events</a>
                                         
                                     </li>
-                                    <li><a href="#">News</a>
+                                    <li><a th:href="@{/newss/allNews}">News</a>
                                         
                                     </li>
-                                    <li><a href="#"></a>
+                                    <li sec:authorize="hasAuthority('TEACHER')">
+                                            <a th:href="@{/newss/current}">Add News</a>
+                                    </li>
                                         
                                     </li>
                                     <li><a href="#"></a>
