@@ -6,7 +6,7 @@
 	<groupId>com.webProject</groupId>
 	<artifactId>school-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>school-system</name>
 	<description>School Managment System</description>
@@ -99,6 +99,13 @@
 	    	<artifactId>htmlunit-driver</artifactId>
 	    	<scope>test</scope>
 	    </dependency>
+<<<<<<< HEAD
+=======
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>		
+		</dependency>
+>>>>>>> 5a0688987175890615002e94eb860faba2d69bfc
 
 	</dependencies>
 

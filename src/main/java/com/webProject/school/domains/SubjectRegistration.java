@@ -46,7 +46,11 @@ public class SubjectRegistration {
 	
 	private Date registratedAt;
 	
+<<<<<<< HEAD
 	@NotNull( message="Grade can not be empty!")
+=======
+	@Size(min=30,max=100, message="Grade is betweenn 30 and 100")
+>>>>>>> 5a0688987175890615002e94eb860faba2d69bfc
 	private double grade;
 	
 	@PrePersist

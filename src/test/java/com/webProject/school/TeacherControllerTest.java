@@ -25,14 +25,14 @@ public class TeacherControllerTest {
 
   @Test
   public void testHomePage() throws Exception {
-    mockMvc.perform(get("/"))   
+    mockMvc.perform(get("/teacher/home"))   
     
       .andExpect(status().isOk())  
       
-      .andExpect(view().name("home"))  
+      .andExpect(view().name("post_results"))  
       
       .andExpect(content().string(           
-          containsString(" ")));  
+          containsString("Ethio's Future High")));  
   }
 
 }
