@@ -164,11 +164,6 @@
                         <!-- Dynamic content start here  -->
                          
                         <div th:each="news : ${allNews}" class="blog">
-                              <!-- 
-                            <div class="blog-thumb">
-                                <img src="../images/ethiopia/IMG_0391.JPG" alt="blog image">     
-                            </div>
-                             -->
                             <div class="blog-details">
                                 <div class="blog-time">
                                     <span th:text=${news.postedAt} class="blog-date">News Title </span>
@@ -180,7 +175,8 @@
                                 <p th:text=${news.content}>News Content</p>
                                 <div class="blog-more">
                                     <a href="#" class="btn btn-default">Read More</a>
-                                    
+                                    <a th:href="@{/}" class="btn-default" style="color:black;font-size:110%;" sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">Edit</a>
+                                	<a th:href="@{/}" class="btn-default" style="background-color:#df6f6f;color:white;font-size:80%;" sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">DELETE</a>
                                 </div>
                             </div>
                     	</div>

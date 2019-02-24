@@ -8,7 +8,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -16,67 +15,59 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.webProject.school.domains.News;
+import com.webProject.school.domains.Payment;
 import com.webProject.school.security.User;
-import com.webProject.school.services.NewsService;
 import com.webProject.school.services.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/newss")
-public class NewsController {
+@RequestMapping("/payments")
+public class PaymentController {
 
-	private NewsService newsService;
 	private UserService userService;
-
+	
 	@Autowired
-	public NewsController(NewsService newsService, UserService userService) {
-		this.newsService = newsService;
+	public PaymentController(UserService userService) {
 		this.userService = userService;
 	}
-	@ModelAttribute(name="news")
-	public News news() {
-		return new News();
+
+	@ModelAttribute(name="payment")
+	public Payment payment() {
+		return new Payment();
 	}
 	
 	@ModelAttribute
-	public void addNews(Model model) {
-		List<News> news = new ArrayList<>();
-		newsService.findAll()
-							.forEach(i->news.add(i));
-		
-			model.addAttribute("allNews", news);
+	public void addPayment(Model model) {
+		List<Payment> payments = new ArrayList<>();
+
+			model.addAttribute("allPayments", payments);
 	}
 	
-	@GetMapping("/allNews")
-	public String allNews() {
-		return "news_view";
+	@GetMapping("/all")
+	public String allPayment() {
+		return "payment_view";
 	}
 	
-	@GetMapping("/current")
-	public String newsForm() {
-		return "news_form";
+	@GetMapping("/new")
+	public String paymentForm() {
+		return "payment_form";
 	}
 
 	@PostMapping
-	public String processNews(@Valid News news, Errors errors, 
+	public String processPayment(@Valid Payment payment, Errors errors, 
 			SessionStatus sessionStatus, @AuthenticationPrincipal User user) {
 
 		if (errors.hasErrors()) {
 
-			log.info("News error: " + errors.toString());
-			return "news_form";
+			log.info("payment error: " + errors.toString());
+			return "payment_form";
 		}
-		
-		news.setPostedBy(user);
-		
-		News savedNews = newsService.save(news);
-		log.info("News submitted: " + savedNews);
+
+		log.info("Payment submitted: " + payment);
 		sessionStatus.setComplete();
 		return "redirect:/";
 	}

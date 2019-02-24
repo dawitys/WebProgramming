@@ -46,7 +46,7 @@ public class GradeController {
 	}
 	
 	@ModelAttribute
-	public void addNews(Model model) {
+	public void addSubjectRegistrations(Model model) {
 		ArrayList<SubjectRegistration> subjs = new ArrayList<>();
 		ArrayList<Student> stids=new ArrayList<Student>();
 		srp.findAllBysubject_id(1)
@@ -57,18 +57,9 @@ public class GradeController {
 			model.addAttribute("allStuds", stids);
 	}
 	
-	@GetMapping("/allNews")
-	public String allNews() {
-		return "grades_view";
-	}
-	
 	@GetMapping("/allGrades")
 	public String allGrades() {
 		return "postResults";
 	}
 	
-	@GetMapping("/current")
-	public String newsForm() {
-		return "news_form";
-	}
 }

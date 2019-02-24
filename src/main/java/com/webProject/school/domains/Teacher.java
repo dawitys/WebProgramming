@@ -41,7 +41,7 @@ public class Teacher{
 	private Date addedOn;
 	
 	@NotNull
-	@Size(min=2, message="Name must be at least 2 characters long")
+	@Size(min=5, message="Name must be at least 5 characters long")
 	private final String Name;
 
 	

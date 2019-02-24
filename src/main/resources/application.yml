@@ -10,6 +10,8 @@ spring:
   datasource:
     platform: mysql
     url: jdbc:mysql://localhost:3306/school_system_jpa
+    #username: appUser
+    #password: appuser
     username: root
     password: 
   jpa:

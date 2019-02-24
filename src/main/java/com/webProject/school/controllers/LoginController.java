@@ -5,7 +5,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Controller
 public class LoginController {
@@ -27,11 +29,12 @@ public class LoginController {
         if (role.contains("ADMIN")) {
             targetUrl = "redirect:/admin/home";
         } else if (role.contains("STUDENT")) {
-            targetUrl = "redirect:/student/home";
+            targetUrl = "redirect:/";
         } else if (role.contains("TEACHER")) {
             targetUrl = "redirect:/teacher/home";
         } else {
             targetUrl = "redirect:/access-denied";
+            log.info(role.toString());
         }
         return targetUrl;
         

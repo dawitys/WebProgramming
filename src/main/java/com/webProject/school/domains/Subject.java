@@ -34,6 +34,7 @@ public class Subject {
 	
 	private Date addedOn;
 	
+	@NotNull(message="subject identity can not be empty")
 	private String identity;
 	
 	@ManyToOne

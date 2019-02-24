@@ -63,19 +63,12 @@
                                     <li><a href="#">Events</a>
                                         
                                     </li>
-                                    <li><a href="#">News</a>
+                                    <li><a th:href="@{/newss/allNews}">News</a>
                                         
                                     </li>
-                                    <li><a href="#"></a>
-                                        
-                                    </li>
-                                    <li><a href="#"></a>
-                                        
-                                    </li>
-                                    <li><a href="#"></a>
-                                        
-                                    </li>
-                                    
+                                    <li sec:authorize="hasAuthority('TEACHER')">
+											<a th:href="@{/newss/current}">Add News</a>
+									</li>
                                 </ul>
                             </nav><!--/.menu-->
                             <div class="register-contact-nav pull-right">
