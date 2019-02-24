@@ -6,7 +6,7 @@
 	<groupId>com.webProject</groupId>
 	<artifactId>school-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>school-system</name>
 	<description>School Managment System</description>
@@ -21,6 +21,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<docker.image.prefix>dawityonas010</docker.image.prefix>
+		
 	</properties>
 
 	<dependencies>
@@ -62,11 +64,6 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>		
 		</dependency>	
-		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
 		
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
@@ -111,6 +108,19 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+			 	<groupId>com.spotify</groupId>
+			 	<artifactId>dockerfile-maven-plugin</artifactId>
+			 	<version>1.4.3</version>
+			 	<configuration>
+			 		<repository>
+						${docker.image.prefix}/${project.artifactId}
+					</repository>
+					<buildArgs>
+						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+			 	</configuration>
+			 </plugin>
 		</plugins>
 	</build>
 

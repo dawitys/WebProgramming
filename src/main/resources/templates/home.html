@@ -89,7 +89,7 @@
         
         <!--Mobile Menu-->
         <div class="mobile-menu">
-            <a class="mobile-logo" href="index-2.html"><img src="../images/logo.png" alt="logo"></a>
+            <a class="mobile-logo" href="index-2.html"><img th:src="@{/images/logo.png}" alt="logo"></a>
         </div>
     </header><!--/.header-area-->
     
@@ -191,7 +191,7 @@
                                 <div class="col-md-12 col-sm-12">
                                     <div class="blog list border-radius">
                                         <div class="blog-thumb">
-                                            <img src="../images/ethiopia/IMG_0390.JPG" alt="blog image">     
+                                            <img th:src="@{/images/ethiopia/IMG_0390.JPG}" alt="blog image">     
                                         </div>
                                         <div class="blog-details">
                                             <div class="blog-time">
@@ -227,7 +227,7 @@
                     <div class="">
                         <div class="blog">
                             <div class="blog-thumb">
-                                <img src="../images/ethiopia/IMG_0391.JPG" alt="blog image">     
+                                <img src="@{/images/ethiopia/IMG_0391.JPG}" alt="blog image">     
                             </div>
                             <div class="blog-details">
                                 <div class="blog-time">
@@ -281,7 +281,7 @@
 				<div class="col-lg-4 col-md-4">
 					<div class="single-service text-center">
                         <div class="icon">
-				            <img src="../images/icon/s-icon1.png" alt="icon">
+				            <img th:src="@{/images/icon/s-icon1.png}" alt="icon">
 				        </div>
 						<h3>Interactive Teachers</h3>
 						<p>We believe creating a strong connection with the students is better than Talk and Chalk.</p>
@@ -290,7 +290,7 @@
 				<div class="col-lg-4 col-md-4">
 					<div class="single-service text-center">
                         <div class="icon">
-				            <img src="../images/icon/s-icon2.png" alt="icon">
+				            <img th:src="@{/images/icon/s-icon2.png}" alt="icon">
 				        </div><!--/.row-->
 						<h3>Computerized System</h3>
 						<p>Our school has a modern system of monitering and communicating way for parents, students and teachers.</p>
@@ -299,7 +299,7 @@
 				<div class="col-lg-4 col-md-4">
 					<div class="single-service text-center">
                         <div class="icon">
-				            <img src="../images/icon/s-icon3.png" alt="icon">
+				            <img th:src="@{/images/icon/s-icon3.png}" alt="icon">
 				        </div><!--/.row-->
 						<h3>Recruit Talent</h3>
 						<p>Every body is smart in their own given talent. We will push and help the students to give their all in with thier talents</p>
@@ -309,7 +309,7 @@
 			<div class="row justify-content-md-center">
 				<div class="col-lg-8">
 				    <div class="section-heading-area text-center">
-					    <a class="btn btn-default btn-primary section-heading-area text-center" href="/registration">Join Us</a>
+					    <a class="btn btn-default btn-primary section-heading-area text-center" th:href="@{/student/registration}">Join Us</a>
 					    
 				    </div><!--/.section-heading-area--> 
 				</div><!--/.col-lg-8-->
@@ -330,24 +330,24 @@
                 <div class="gallery-area">
                     <div class="row">
                         <div class="col-md-4">
-                            <a class="single-gal-item" href="../images/ethiopia/IMG_0392.JPG">
-                                <img class="img-fluid" src="../images/ethiopia/IMG_0391.JPG" alt="img">
+                            <a class="single-gal-item" href="#">
+                                <img class="img-fluid" th:src="#" alt="img">
                                 <div class="overlay-icon">
                                     <span class="ti-zoom-in"></span>
                                 </div>
                             </a><!--/.single-gal-item-->
                         </div><!--/.col-md-4-->
                         <div class="col-md-4">
-                            <a class="single-gal-item" href="../images/ethiopia/IMG_0392.JPG">
-                                <img class="img-fluid" src="../images/ethiopia/IMG_0386.JPG" alt="img">
+                            <a class="single-gal-item" href="#">
+                                <img class="img-fluid" th:src="@{/images/ethiopia/IMG_0386.JPG}" alt="img">
                                 <div class="overlay-icon">
                                     <span class="ti-zoom-in"></span>
                                 </div>
                             </a><!--/.single-gal-item-->
                         </div><!--/.col-md-4-->
                         <div class="col-md-4">
-                            <a class="single-gal-item" href="../images/ethiopia/cathe.JPG">
-                                <img class="img-fluid" src="../images/ethiopia/IMG_0387.JPG" alt="img">
+                            <a class="single-gal-item" href="#">
+                                <img class="img-fluid" th:src="@{/images/ethiopia/IMG_0387.JPG}" alt="img">
                                 <div class="overlay-icon">
                                     <span class="ti-zoom-in"></span>
                                 </div>
@@ -356,22 +356,22 @@
                     </div><!--/.row-->
                     <div class="row">
                         <div class="col-md-8">
-                            <a class="single-gal-item" href="../images/ethiopia/IMG_0390.JPG">
-                                <img class="img-fluid" src="../images/ethiopia/cathe.JPG" alt="img">
+                            <a class="single-gal-item" href="@{/images/ethiopia/IMG_0390.JPG}">
+                                <img class="img-fluid" th:src="@{/images/ethiopia/cathe.JPG}" alt="img">
                                 <div class="overlay-icon">
                                     <span class="ti-zoom-in"></span>
                                 </div>
                             </a><!--/.single-gal-item-->
                         </div><!--/.col-md-4-->
                         <div class="col-md-4">
-                            <a class="single-gal-item" href="../images/ethiopia/home.JPG">
-                                <img class="img-fluid" src="../images/ethiopia/IMG_0392.JPG" alt="img">
+                            <a class="single-gal-item" href="#">
+                                <img class="img-fluid" th:src="@{/images/ethiopia/IMG_0392.JPG}" alt="img">
                                 <div class="overlay-icon">
                                     <span class="ti-zoom-in"></span>
                                 </div>
                             </a><!--/.single-gal-item-->
-                            <a class="single-gal-item" href="../images/ethiopia/cathe.JPG">
-                                <img class="img-fluid" src="../images/ethiopia/homme.JPG" alt="img">
+                            <a class="single-gal-item" href="#">
+                                <img class="img-fluid" th:src="@{/images/ethiopia/homme.JPG}" alt="img">
                                 <div class="overlay-icon">
                                     <span class="ti-zoom-in"></span>
                                 </div>
@@ -437,7 +437,7 @@
                             <h2>Scholarship</h2>
                         </div>
                         <div class="pricing-price-area">
-                            <img src="../images/icon/pricing1.png" alt="icon">
+                            <img src="@{/images/icon/pricing1.png}" alt="icon">
                             <div class="pricing-price">
                                 <h3>5000</h3>
                                 <p>etb<br>per year</p>
@@ -461,7 +461,7 @@
                             <h2>Standard</h2>
                         </div>
                         <div class="pricing-price-area">
-                            <img src="../images/icon/pricing2.png" alt="icon">
+                            <img src="@{/images/icon/pricing2.png}" alt="icon">
                             <div class="pricing-price">
                                 <h3>10,000</h3>
                                 <p>etb<br>per year</p>
@@ -484,7 +484,7 @@
                             <h2>Extra</h2>
                         </div>
                         <div class="pricing-price-area">
-                            <img src="../images/icon/pricing3.png" alt="icon">
+                            <img th:src="@{/images/icon/pricing3.png}" alt="icon">
                             <div class="pricing-price">
                                 <h3>13,000</h3>
                                 <p>etb<br>per year</p>
@@ -525,15 +525,15 @@
 	============================================== -->
    
     <!-- jQuery Latest Version -->
-    <script src="../js/jquery-v3.2.1.min.js"></script>
+    <script th:src="@{/js/jquery-v3.2.1.min.js}"></script>
     <!-- Popper JS -->
-    <script src="../js/popper.min.js"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
     <!-- Bootstrap framework JS -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
     <!-- All JS plugins included in this file. -->
-    <script src="../js/plugins.js"></script>
+    <script th:src="@{/js/plugins.js}"></script>
     <!-- Main JS file that contents all jQuery Plugins activation. -->
-    <script src="../js/main.js"></script>
+    <script th:src="@{/js/main.js}"></script>
 </body>
 
 <!-- Mirrored from bdevs.co/edulab/edulab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Dec 2018 09:56:52 GMT -->
