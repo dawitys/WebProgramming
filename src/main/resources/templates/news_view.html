@@ -158,7 +158,7 @@
                                 <div class="blog-more">
                                     <a href="#" class="btn btn-default">Read More</a>
                                     <a th:href="@{'/newss/edit/'+${news.id}}" class="btn-default" style="color:black;font-size:110%;" sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">Edit</a>
-                                	<a th:href="@{/}" class="btn-default" style="background-color:#df6f6f;color:white;font-size:80%;" sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">DELETE</a>
+                                	<a th:href="@{'/newss/edit/delete/'+${news.id}}" class="btn-default" style="background-color:#df6f6f;color:white;font-size:80%;" sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">DELETE</a>
                                 </div>
                             </div>
                     	</div>

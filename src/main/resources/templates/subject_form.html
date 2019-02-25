@@ -14,7 +14,7 @@
     <meta name="keywords" content="HTML5, Template, Design, Development, education, edulab, online cources, training, online education, best education template">
 
     <!--======== Page Title===========-->
-    <title>Teacher</title>
+    <title>Admin | Add Subject</title>
     
     <!--========== Favicons =========-->
     <link rel="shortcut icon" th:href="@{/images/logos/logo.png}">
@@ -103,31 +103,40 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="login-form-area">
-                        <form method="POST" th:action="@{/newss}" th:object="${news}">
-                            <h2> Add News</h2>
+                        <form method="POST" th:action="@{addSubject}" th:object="${subject}">
+                            <h2> Add Subject</h2>
                            
                                <div th:if="${#fields.hasErrors()}">
 				<span class="text-danger"> Please correct the problems below
-					and resubmit </span>
-			</div>
+					and resubmit </span></div>
                             <div class="divider-or text-center">
 
                             </div>
-                            <p><input th:field="*{title}" class="form-control" type="text" name="header" id="user_login" placeholder="Header"></p>
-                             
-                            	<div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title Error</div></p>
-                                                      
-                            <p class="input-group"><textarea th:field="*{content}" placeholder="detail" rows="4" class="form-control" name="detail"></textarea>
-                            	
-                            	<div class="text-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Content Error</div></p>
-                            
-                            <P><input class="form-control" type="date" name="date" placeholder="date"></P>
-
-                            <p><input class="form-control" type="text" th:field="*{catagory}" id="user_pass" placeholder="category"></p>
-                            
-                            <div class="text-danger" th:if="${#fields.hasErrors('catagory')}" th:errors="*{content}">Content Error</div></p>
-                            
-                            <p><button class="btn btn-default btn-primary" type="submit">Add News</button></p>
+                            <p>
+                            <input th:field="*{identity}" class="form-control" type="text" name="Subject identification" id="user_login" placeholder="Identification"></p>
+                            <div class="text-danger" th:if="${#fields.hasErrors('identity')}" th:errors="*{identity}">title Error</div></p>
+      <!-- 
+      <select th:field="*{toughtBy}">
+  <option 
+      th:each="teac: ${allTeachers}"
+      th:value="${teac}"
+      th:text="${teac.getName()}" ></option>
+</select>
+-->
+      		<!-- 
+      	<div class="row courses-item-content">
+            <div th:each="teac: ${allTeachers}" class="col-lg-3 col-sm-6 design photography">
+                <div class="single-course-item border-radius">
+                   
+                    <div class="">
+                    	<input type="radio" name="gender" th:field="*{toughtBy}" value="${teac}">
+                        <h4  th:text="${teac.getName()}"></h4>
+                    
+                    </div>
+                </div>
+            </div>
+            -->                            
+            <div><button class="btn btn-default btn-primary" type="submit">Add Subject</button></div>
                                                 
                             
                         </form>
@@ -135,34 +144,38 @@
                 </div><!--/.col-lg-4-->
             </div><!--/.row-->
         </div><!--/.container-->
-    </div><!--/.login-page-->#featured-section-->
-    
-    
-    
-   
-    
-   
-   
+    </div><!--/.login-page-->
+    <h4 class="row justify-content-center">All Subjects List</h4>
+    <div class="login-page page-wrapper s-pd100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div th:each="su: ${allSub}" class="login-form-area">
+                    	<a href="#"  th:text="${su.getIdentity()}"></a>
+                   	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
     <!-- Start footer area -->
     <footer id="footer" class="site-footer">
-        
-        
+ 
          </footer><!--End footer area -->
-   
-    
+  
     <!-- All JS files are included here.
 	============================================== -->
    
     <!-- jQuery Latest Version -->
-    <script src="../js/jquery-v3.2.1.min.js"></script>
+    <script th:src="@{/js/jquery-v3.2.1.min.js}"></script>
     <!-- Popper JS -->
-    <script src="../js/popper.min.js"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
     <!-- Bootstrap framework JS -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
     <!-- All JS plugins included in this file. -->
-    <script src="../js/plugins.js"></script>
+    <script th:src="@{/js/plugins.js}"></script>
     <!-- Main JS file that contents all jQuery Plugins activation. -->
-    <script src="../js/main.js"></script>
+    <script th:src="@{/js/main.js}"></script>
 </body>
 
 <!-- Mirrored from bdevs.co/edulab/edulab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Dec 2018 09:56:52 GMT -->

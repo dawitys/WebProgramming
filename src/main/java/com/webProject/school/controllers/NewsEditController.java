@@ -83,9 +83,9 @@ public class NewsEditController {
 		return "redirect:/newss/allNews";
 	}
 
-	@DeleteMapping("/{id}")
+	@GetMapping("delete/{id}")
 	public String deleteNews(@PathVariable("id") Long id) {
 		newsService.deleteById(id);
-		return "redirect:/";
+		return "redirect:/newss/allNews";
 	}
 }
