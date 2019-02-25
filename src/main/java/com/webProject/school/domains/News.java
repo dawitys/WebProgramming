@@ -39,6 +39,9 @@ public class News {
 		this.postedAt = new Date();
 	}	
 	
+	public News() {
+	}
+
 	@Column(name = "title")
     @NotBlank(message = "Please provide Title")
     private String title;

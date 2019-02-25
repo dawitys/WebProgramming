@@ -7,6 +7,7 @@ management:
   health:
     show-details: always
 spring:
+  profiles: docker
   datasource:
     platform: mysql
     url: jdbc:mysql://localhost:3306/school_system_jpa

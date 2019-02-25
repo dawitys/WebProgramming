@@ -69,7 +69,7 @@
                                     <li sec:authorize="isAuthenticated()">
 											<a th:href="@{/newss/allNews}"> News </a>
 									</li>
-                                    <li sec:authorize="hasAuthority('TEACHER')">
+                                    <li sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">
 											<a th:href="@{/newss/current}"> Add News</a>
 									</li>
 									<li>

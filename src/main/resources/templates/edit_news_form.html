@@ -90,12 +90,15 @@
     </header><!--/.header-area-->
     
                         
-    </div><!--/.col-lg-6-->
+    </div><!--     /.col-lg-6-->
     
     
 
     
     <!--====Home Search Section
+
+    	method="POST"  th:action="@{'/newss/edit/' + ${news.getId()}}"
+    	
     ====================================-->
     
     <div class="login-page page-wrapper s-pd100">
@@ -103,29 +106,31 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="login-form-area">
-                        <form method="POST" th:action="@{'/newss/edit/' + ${news.getId()}}" th:object="${news}">
+                        <form id="news-form"  th:object="${news}">
                             <h3> Edit News</h3>
                            
                                <div th:if="${#fields.hasErrors()}">
 				<span class="text-danger"> Please correct the problems below
 					and resubmit </span>
+					
 			</div>
                             <div class="divider-or text-center">
 
                             </div>
-                            <p><input th:field="*{title}" class="form-control" type="text" name="header" id="user_login" placeholder="Header"></p>
+                            <p> <input class="form-control" type="text" name="id" th:field="*{id}" disabled></p>
+                            <p><input th:field="*{title}" class="form-control" type="text" name="title" id="user_login" placeholder="Header"></p>
                              
                             	<div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title Error</div></p>
                                                       
-                            <p class="input-group"><textarea th:field="*{content}" placeholder="detail" rows="4" class="form-control" name="detail"></textarea>
+                            <p class="input-group"><input name="content" th:field="*{content}" placeholder="detail" rows="4" class="form-control">
                             	
                             	<div class="text-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Content Error</div></p>
                             
                             <P><input class="form-control" type="date" placeholder="date"></P>
 
-                            <p><input class="form-control" type="text" th:field="*{catagory}" placeholder="category"></p>
+                            <p><input name="catagory" class="form-control" type="text" th:field="*{catagory}" placeholder="category"></p>
                             
-                            <p><button class="btn btn-default btn-primary" type="submit">Update News</button></p>
+                            <p><button class="btn btn-default btn-primary" type="submit" value="submit">Update News</button></p>
                                                 
                             
                         </form>
@@ -133,7 +138,7 @@
                 </div><!--/.col-lg-4-->
             </div><!--/.row-->
         </div><!--/.container-->
-    </div><!--/.login-page-->#featured-section-->
+    </div><!--/.login-page-->
     
     
     
@@ -150,17 +155,44 @@
     
     <!-- All JS files are included here.
 	============================================== -->
-   
-    <!-- jQuery Latest Version -->
-    <script src="../js/jquery-v3.2.1.min.js"></script>
+   	
+   	<!-- jQuery Latest Version -->
+    <script th:src="@{/js/jquery-v3.2.1.min.js}"></script>
+    <script>
+ 		$("#news-form").submit(function(event){
+            event.preventDefault();
+            var form = $(this);
+            var id = form.find('input[name="id"]').val();
+            var url = 'http://localhost:8080/newss/edit/'+id;
+            var title = form.find('input[name="title"]').val();
+            var content = form.find('input[name="content"]').val();
+            var catagory = form.find('input[name="catagory"]').val();
+			alert(catagory);
+            $.ajax({
+                type : 'PATCH',
+                url : url,
+                contentType: 'application/x-www-form-urlencoded',
+                data : "id="+id+"&title="+title+"&content="+content+"&catagory="+catagory,
+                success : function(data, status, xhr){
+                   alert("News Updated");
+                },
+                error: function(xhr, status, error){
+                	 alert(status);
+                  alert(error);
+                }
+            });
+        });
+
+</script>
+    
     <!-- Popper JS -->
-    <script src="../js/popper.min.js"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
     <!-- Bootstrap framework JS -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
     <!-- All JS plugins included in this file. -->
-    <script src="../js/plugins.js"></script>
+    <script src="@{/js/plugins.js}"></script>
     <!-- Main JS file that contents all jQuery Plugins activation. -->
-    <script src="../js/main.js"></script>
+    <script src="@{/js/main.js}"></script>
 </body>
 
 <!-- Mirrored from bdevs.co/edulab/edulab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Dec 2018 09:56:52 GMT -->

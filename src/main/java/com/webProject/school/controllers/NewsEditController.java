@@ -13,6 +13,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -82,7 +84,25 @@ public class NewsEditController {
 		newsService.save(news);
 		return "redirect:/newss/allNews";
 	}
+	
+	@PatchMapping("/{id}")
+	@ResponseBody
+	public String createNewArticle(@RequestBody MultiValueMap<String, String> formParams) {
+		log.info("put method get called");
+		log.info(formParams.getFirst("title"));
+	    long id = Long.parseLong(formParams.getFirst("id"));
+	    String title = formParams.getFirst("title");
+	    String content = formParams.getFirst("content");
+	    String catagory = formParams.getFirst("catagory");
+	    News news = newsService.findById(id).get();
+	    news.setTitle(title);
+	    news.setContent(content);
+	    news.setCatagory(catagory);
+	    newsService.save(news);
 
+		return "redirect:/newss/allNews";
+	}
+	
 	@GetMapping("delete/{id}")
 	public String deleteNews(@PathVariable("id") Long id) {
 		newsService.deleteById(id);
