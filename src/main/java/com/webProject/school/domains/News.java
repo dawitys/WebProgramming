@@ -47,6 +47,9 @@ public class News {
     @NotBlank(message = "Content can not be empty")
     private String content;
     	
+    @NotBlank(message = "Content can not be empty")
+    private String catagory;
+    
 	@ManyToOne
 	private  User postedBy;
 

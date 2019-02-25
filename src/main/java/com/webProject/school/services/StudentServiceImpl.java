@@ -17,6 +17,11 @@ public class StudentServiceImpl implements StudentService {
 	public StudentServiceImpl(StudentRepository studentRepository) {
 		this.studentRepository = studentRepository;
 	}
+
+	@Override
+	public Student findByUserId(long id) {
+		return studentRepository.findByUserId(id);
+	}
 	
 	public Student save(Student student) {
 		return studentRepository.save(student);

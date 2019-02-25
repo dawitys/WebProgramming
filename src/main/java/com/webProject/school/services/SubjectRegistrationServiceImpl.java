@@ -65,4 +65,9 @@ public class SubjectRegistrationServiceImpl implements SubjectRegistrationServic
 	public void deleteAll(){
 		subjectRegistrationRepository.deleteAll();
 	}
+
+	@Override
+	public Iterable<SubjectRegistration> findAllBystudent_id(long id) {
+		return subjectRegistrationRepository.findAllBystudent_id(id);
+	}
 }

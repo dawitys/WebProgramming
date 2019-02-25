@@ -99,22 +99,17 @@
 	    	<artifactId>htmlunit-driver</artifactId>
 	    	<scope>test</scope>
 	    </dependency>
-<<<<<<< HEAD
-=======
+
 	    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>		
 		</dependency>
->>>>>>> 5a0688987175890615002e94eb860faba2d69bfc
+
 
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
 			<plugin>
 			 	<groupId>com.spotify</groupId>
 			 	<artifactId>dockerfile-maven-plugin</artifactId>
@@ -128,6 +123,10 @@
 					</buildArgs>
 			 	</configuration>
 			 </plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 

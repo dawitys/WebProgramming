@@ -17,26 +17,26 @@
     <title>Grade Report</title>
     
     <!--========== Favicons =========-->
-    <link rel="shortcut icon" href="../images/logos/logo.png">
+    <link rel="shortcut icon" th:href="@{/images/logos/logo.png}">
     
     <!--======== Font icon Css ============-->
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/themify-icons.css" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/themify-icons.css}" rel="stylesheet">
     
     <!--======= Bootstrap Main Css =============-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
     
     <!--====== Plugins Css ================-->
-    <link href="../css/plugins.css" rel="stylesheet">
+    <link th:href="@{/css/plugins.css}" rel="stylesheet">
 
     <!--====== Custom CSS for themes =======-->
     
-    <link rel="stylesheet" href="../css/custom.css" />
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
     
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script th:src="@{/js/vendor/modernizr-2.8.3.min.js}"></script>
 
     <script>
         function myFunction(){
@@ -56,7 +56,7 @@
                         <div class="logo-menu-wrap hidden-xs hidden-sm">
                             <div class="logo">
                                 <a href="index-2.html">
-                                    <img src="../images/logos/logo.png" alt="logo">
+                                    <img src="@{/images/logos/logo.png}" alt="logo">
                                 </a>
                             </div><!--/.logo-->
                             <nav class="menu">
@@ -73,14 +73,11 @@
                                     <li><a th:href="@{/newss/allNews}">News</a>
                                         
                                     </li>
-                                    <li sec:authorize="hasAuthority('TEACHER')">
-											<a th:href="@{/newss/current}">Add News</a>
-									</li>
                                 </ul>
                             </nav><!--/.menu-->
                             <div class="register-contact-nav pull-right">
                                 
-                                <a class="btn btn-default" href="contact.html">Sign Out</a>
+                                <a class="btn btn-default" th:href="@{/logout}">Sign Out</a>
                             </div><!--/.register-contact-nav-->
                         </div><!--/.logo-menu-wrap-->
                     </div><!--/.col-lg-12-->
@@ -92,7 +89,7 @@
         
         <!--Mobile Menu-->
         <div class="mobile-menu">
-            <a class="mobile-logo" href="index-2.html"><img src="../images/logo.png" alt="logo"></a>
+            <a class="mobile-logo" href="index-2.html"><img src="@{/images/logo.png}" alt="logo"></a>
         </div>
     </header><!--/.header-area-->
     
@@ -112,51 +109,16 @@
   
   <table class="table result-table justify-content-md-center">
     <tr>
-    	<th>#</th>
     	<th>Subject</th>
     	<th>Result</th>
     	<th>Detail</th>
     </tr>
-    <tr>
-    	<td>1</td>
-    	<td>Mathematics</td>
-    	<td>82</td>
+    <tr th:each="gr:${subs}">
+    	<td th:text="${gr.getSubject().getIdentity()}">Mathematics</td>
+    	<td th:text="${gr.getGrade()}"></td>
         <td>
-            <div class = "popup"  onclick = "myFunction()">  
-                Click
-                <span class = "popuptext" id="myPopup">
-                        <table class="">
-                                <tr>
-                                    <th>Mid Exams</th>
-                                    <th>Final Exams</th>
-                                    <th>Assignment 1</th>
-                                    <th>Assignment 2</th>
-
-                                </tr>
-                                <tr>
-                                        <td>15</td>
-                                        <td>27</td>
-                                        <td>15</td>
-                                        <td>19</td>
-                                </tr>
-                            </table>
-
-
-                </span>
-            </div> 
+            <a href="#" class="btn btn-default">See More</a>
         </td>
-    </tr>
-    <tr>
-    	<td>2</td>
-    	<td>English</td>
-    	<td>92</td>
-    	<td><a href="#" class="btn btn-default">Read More</a></td>
-    </tr>
-    <tr>
-    	<td>3</td>
-    	<td>Biology</td>
-    	<td>90</td>
-    	<td><a href="#" class="btn btn-default">Read More</a></td>
     </tr>
   </table>
   <br/>
@@ -178,15 +140,15 @@
 	============================================== -->
    
     <!-- jQuery Latest Version -->
-    <script src="../js/jquery-v3.2.1.min.js"></script>
+    <script th:src="@{/js/jquery-v3.2.1.min.js}"></script>
     <!-- Popper JS -->
-    <script src="../js/popper.min.js"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
     <!-- Bootstrap framework JS -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
     <!-- All JS plugins included in this file. -->
-    <script src="../js/plugins.js"></script>
+    <script th:src="@{/js/plugins.js}"></script>
     <!-- Main JS file that contents all jQuery Plugins activation. -->
-    <script src="../js/main.js"></script>
+    <script th:src="@{/js/main.js}"></script>
 </body>
 
 <!-- Mirrored from bdevs.co/edulab/edulab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Dec 2018 09:56:52 GMT -->

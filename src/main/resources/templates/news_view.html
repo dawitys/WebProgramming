@@ -74,8 +74,8 @@
                             </nav><!--/.menu-->
                             <div class="register-contact-nav pull-right">
                                 
-                                <a class="btn btn-default" th:href="@{/registration}">Want To Register?</a>
-                                <a class="btn btn-default" th:href="@{/login}">I'm Family</a>
+                                
+                                <a sec:authorize="isAuthenticated()" class="btn btn-default" th:href="@{/logout}">Logout</a>
                             </div><!--/.register-contact-nav-->
                         </div><!--/.logo-menu-wrap-->
                     </div><!--/.col-lg-12-->
@@ -142,32 +142,14 @@
                     <!-- Start single blog -->
                     <br/>
                     <div class="">
-                        <div class="blog">
-                            <div class="blog-thumb">
-                                <img src="../images/ethiopia/IMG_0391.JPG" alt="blog image">     
-                            </div>
-                            <div class="blog-details">
-                                <div class="blog-time">
-                                    <span class="blog-date">January 14th, 2019 </span>
-                                    <span class="blog-category">Category <a href="#">Accomplishment</a></span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="single-blog.html">Winner in Addis Ababa</a></h3>
-                                </div>
-                                <p>This Week our student 'Daniel Geremew' won the technology competetion held in 6kilo AAU Campus. We all know that our school is full of bright young students whom are full of new ideas...</p>
-                                <div class="blog-more">
-                                    <a href="#" class="btn btn-default">Read More</a>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                        
                         <!-- Dynamic content start here  -->
                          
                         <div th:each="news : ${allNews}" class="blog">
                             <div class="blog-details">
                                 <div class="blog-time">
                                     <span th:text=${news.postedAt} class="blog-date">News Title </span>
-                                    <span class="blog-category"> Catagory <a href="#">Everything</a></span>
+                                    <span class="blog-category"> Catagory   :  <span th:text=${news.catagory} >Everything</span></span>
                                 </div>
                                 <div class="blog-title">
                                     <h3 th:text=${news.title}><a href="#">News Title</a></h3>
@@ -175,7 +157,7 @@
                                 <p th:text=${news.content}>News Content</p>
                                 <div class="blog-more">
                                     <a href="#" class="btn btn-default">Read More</a>
-                                    <a th:href="@{/}" class="btn-default" style="color:black;font-size:110%;" sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">Edit</a>
+                                    <a th:href="@{'/newss/edit/'+${news.id}}" class="btn-default" style="color:black;font-size:110%;" sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">Edit</a>
                                 	<a th:href="@{/}" class="btn-default" style="background-color:#df6f6f;color:white;font-size:80%;" sec:authorize="hasAnyAuthority('TEACHER','ADMIN')">DELETE</a>
                                 </div>
                             </div>

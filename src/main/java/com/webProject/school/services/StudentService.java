@@ -8,7 +8,9 @@ public interface StudentService {
 	public Student save(Student students);
 	
 	public Iterable<Student> saveAll(Iterable<Student> students);
-
+	
+	public Student findByUserId(long id);
+	
 	Optional<Student> findById(Long id);
 
 	boolean existsById(Long id);

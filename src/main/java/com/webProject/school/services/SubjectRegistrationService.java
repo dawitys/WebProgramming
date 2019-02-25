@@ -5,6 +5,8 @@ import com.webProject.school.domains.SubjectRegistration;
 
 public interface SubjectRegistrationService {
 
+	public Iterable<SubjectRegistration> findAllBystudent_id(long id);
+	
 	public SubjectRegistration save(SubjectRegistration subjectRegistrations);
 	
 	public Iterable<SubjectRegistration> saveAll(Iterable<SubjectRegistration> subjectRegistrations);

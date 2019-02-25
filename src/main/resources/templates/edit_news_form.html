@@ -103,7 +103,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="login-form-area">
-                        <form method="POST" th:action="@{/newss}" th:object="${news}">
+                        <form method="POST" th:action="@{'/newss/edit/' + ${news.getId()}}" th:object="${news}">
                             <h3> Edit News</h3>
                            
                                <div th:if="${#fields.hasErrors()}">
@@ -121,11 +121,11 @@
                             	
                             	<div class="text-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Content Error</div></p>
                             
-                            <P><input class="form-control" type="date" name="date" placeholder="date"></P>
+                            <P><input class="form-control" type="date" placeholder="date"></P>
 
-                            <p><input class="form-control" type="text" name="category" id="user_pass" placeholder="category"></p>
+                            <p><input class="form-control" type="text" th:field="*{catagory}" placeholder="category"></p>
                             
-                            <p><button class="btn btn-default btn-primary" type="submit">Add News</button></p>
+                            <p><button class="btn btn-default btn-primary" type="submit">Update News</button></p>
                                                 
                             
                         </form>
