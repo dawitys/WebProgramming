@@ -17,6 +17,7 @@ import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -35,6 +36,7 @@ public class Subject {
 	private Date addedOn;
 	
 	@NotNull(message="subject identity can not be empty")
+	@Size(min=5,message="subject identity should be at least 5 char")
 	private String identity;
 	
 	@ManyToOne
