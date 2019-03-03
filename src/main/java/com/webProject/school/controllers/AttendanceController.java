@@ -64,7 +64,6 @@ public class AttendanceController {
 		}
 
 		log.info("Attendance submitted: " + att);
-		sessionStatus.setComplete();
 		return "redirect:/";
 	}
 
